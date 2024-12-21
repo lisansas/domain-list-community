@@ -1,4 +1,5 @@
 # 米哈游
+mhystatic.com @cn
 mhyurl.cn @cn
 mihayo.com @cn
 mihayou.com @cn
@@ -14,11 +15,17 @@ benghuai.com @cn
 # 崩坏3
 bh3.com @cn
 
+# 星穹铁道
+bhsr.com @cn
+
 # 未定事件簿
 themisweeps.com @cn
 
 # 原神
 yuanshen.com @cn
+
+#绝区零
+juequling.com @cn
 
 # Akamai
 regexp:^.+-mihayo\.akamaized\.net$ @cn

@@ -11,21 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup Go
-        uses: actions/setup-go@v3
+      - name: Checkout codebase
+        uses: actions/checkout@v4
         with:
-          go-version: 1.19
+          path: code
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: code/go.mod
 
       - name: Set variables
         run: |
           echo "RELEASE_NAME=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
           echo "TAG_NAME=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
         shell: bash
-
-      - name: Checkout codebase
-        uses: actions/checkout@v3
-        with:
-          path: code
 
       - name: Build dlc.dat file
         run: |
@@ -59,14 +59,7 @@ jobs:
           git push -f -u origin release
 
       - name: Release and upload assets
-        uses: softprops/action-gh-release@v1
-        with:
-          name: ${{ env.RELEASE_NAME }}
-          tag_name: ${{ env.TAG_NAME }}
-          draft: false
-          prerelease: false
-          files: |
-            ./dlc.dat
-            ./dlc.dat.*
+        run: |
+          gh release create ${{ env.TAG_NAME }} --generate-notes --latest --title ${{ env.RELEASE_NAME }} ./dlc.dat ./dlc.dat.*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

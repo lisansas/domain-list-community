@@ -1,5 +1,6 @@
 playartifact.com
 s.team
+steam.tv
 steam-api.com
 steam-chat.com
 steamcommunity.com
@@ -39,6 +40,7 @@ steam.cdn.webra.ru
 full:steambroadcast.akamaized.net
 full:steamcdn-a.akamaihd.net
 full:steamcommunity-a.akamaihd.net
+full:steammobile.akamaized.net
 full:steampipe-kr.akamaized.net
 full:steampipe-partner.akamaized.net
 full:steampipe.akamaized.net
